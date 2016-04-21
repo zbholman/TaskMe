@@ -1,5 +1,0 @@
-this is a sample file to test git
-
-hopefully it works
-
-it did!!
