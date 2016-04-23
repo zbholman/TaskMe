@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Optimize mobile viewport -->
-    <title>Fuckin shit up</title>
+    <title>TaskMe</title>
 
     <!-- load bootstrap -->
     <link href="css/bootstrap.css" rel="stylesheet">
@@ -89,6 +89,7 @@
                     <li><a href="#" onclick="toggleDetailDiv(1);">{{ project.task }}</a></li>
                     <!-- <li>Task2</li> -->
                 </ul>
+		<a href="#task" data-toggle="modal">+ Create Task</a>
             </div>
             <div class="col-md-4 lightbox" id="divdetail">
                 <h2>Details</h2>
@@ -135,6 +136,37 @@
             </div>
         </div>
     </div>
+<div class="modal fade" id="task" role="dialog">
+         <div class="modal-dialog">
+             <div class="modal-content">
+                 <div class="modal-header">
+                     <h4>About this Page</h4>
+                 </div>
+                 <div class="modal-body">
+                     <div id="project-form" class="row">
+                         <div class="col-sm-8 col-sm-offset-2 text-center">
+                             <form>
+                                 <div class="form-group">
+ 
+                                     <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                                     <input type="text" class="form-control input-lg text-center" placeholder="Enter Task Name" ng-model="formData.tasks.task_name">
+				    <input type="text" class="form-control input-lg text-center" placeholder="Enter Assignee" ng-model="formData.tasks.assignee">
+                                     <input type="text" class="form-control input-lg text-center" placeholder="Enter Due Date" ng-model="formData.tasks.due_date">
+ <input type="text" class="form-control input-lg text-center" placeholder="Description" ng-model="formData.description">
+                                </div>
+ 
+                                 <!-- createToDo() WILL CREATE NEW TODOS -->
+                                 <button type="submit" class="btn btn-primary btn-lg" ng-click="createProject()" data-dismiss="modal">Add</button>
+                             </form>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="modal-footer">
+                    <a class="btn btn-default" data-dismiss="modal">Close</a>
+                 </div>
+             </div>
+         </div>
+     </div>
 
 
     <div id="mask" onclick="toggleDetailDiv(-1);"></div>

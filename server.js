@@ -21,24 +21,32 @@ app.use(methodOverride());
     
 // define model =================
 var Project = mongoose.model('Project', {
-    text: String,
-    task: String,
+    text: String, // {
+    tasks : [
+	{task_name : String,
+	assignee : String,
+	creation_date : String,
+	due_date : String,
+	//text_alerts : String,
+	description : String,
+	},
+	],
 });
 
-// get all todos
+// get all projects
 app.get('/api/projects', function (req, res) {
 
-    // use mongoose to get all todos in the database
+    // use mongoose to get all projects in the database
     Project.find(function (err, projects) {
 
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err)
             res.send(err)
 
-        res.json(projects); // return all todos in JSON format
+        res.json(projects); // return all projects in JSON format
     });
 });
-// create todo and send back all todos after creation
+// create todo and send back all projects after creation
 app.post('/api/projects', function (req, res) {
 
     // create a todo, information comes from AJAX request from Angular
@@ -50,7 +58,7 @@ app.post('/api/projects', function (req, res) {
         if (err)
             res.send(err);
 
-        // get and return all the todos after you create another
+        // get and return all the projects after you create another
         Project.find(function (err, projects) {
             if (err)
                 res.send(err)
@@ -66,7 +74,7 @@ app.delete('/api/projects/:project_id', function (req, res) {
         if (err)
             res.send(err);
 
-        // get and return all the todos after you create another
+        // get and return all the projects after you create another
         Project.find(function (err, projects) {
             if (err)
                 res.send(err)

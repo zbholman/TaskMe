@@ -37,5 +37,24 @@ function mainController($scope, $http) {
                 console.log('Error: ' + data);
             });
     };
-
+   
+    // get tasks
+    $http.get('/api/projects')
+         .success(function (data) {
+             $scope.tasks = data;
+             console.log(data);
+         })
+         .error(function (data) {
+             console.log('Error: ' + data);
+         });
+    $scope.createTask = function () {
+        $http.post('/api/projects', $scope.formData)
+            .success(function (data) {
+                $scope.formData = {}; // clear the form so our user is ready to enter another                $scope.projects = data;
+                console.log(data);
+            })
+            .error(function (data) {
+                console.log('Error: ' + data);
+            });
+    };
 };
