@@ -17,6 +17,7 @@
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
     <!-- load angular -->
     <script src="core.js"></script>
+
 </head>
 
 <body ng-controller="mainController">
@@ -81,15 +82,15 @@
                     <li><a href="#" onclick="toggleTaskDiv(1);">{{ project.text }}</a></li>
                     <!-- <li>Project 2</li> -->
                 </ul>
-                <a href="#project" data-toggle="modal">+ Create Project</a>
+                <a href="#project" class="btn btn-primary btn-md" data-toggle="modal">+ Create Project</a>
             </div>
             <div class="col-md-4" id="divtask">
-                <h2>Tasks</h2>
+                <h2>{{ project.text }} Tasks</h2>
                 <ul ng-repeat="project in projects">
                     <li><a href="#" onclick="toggleDetailDiv(1);">{{ project.task }}</a></li>
                     <!-- <li>Task2</li> -->
                 </ul>
-		<a href="#task" data-toggle="modal">+ Create Task</a>
+		<a href="#task" class="btn btn-primary btn-md" data-toggle="modal">+ Create Task</a>
             </div>
             <div class="col-md-4 lightbox" id="divdetail">
                 <h2>Details</h2>

@@ -26,7 +26,7 @@ function mainController($scope, $http) {
             });
     };
 
-    // delete a todo after checking it
+    // delete a project after checking it
     $scope.deleteProject = function (id) {
         $http.delete('/api/projects/' + id)
             .success(function (data) {
@@ -39,7 +39,7 @@ function mainController($scope, $http) {
     };
    
     // get tasks
-    $http.get('/api/projects')
+    $http.get('/api/tasks')
          .success(function (data) {
              $scope.tasks = data;
              console.log(data);
@@ -48,7 +48,7 @@ function mainController($scope, $http) {
              console.log('Error: ' + data);
          });
     $scope.createTask = function () {
-        $http.post('/api/projects', $scope.formData)
+        $http.post('/api/tasks', $scope.formData)
             .success(function (data) {
                 $scope.formData = {}; // clear the form so our user is ready to enter another                $scope.projects = data;
                 console.log(data);
