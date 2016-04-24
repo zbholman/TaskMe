@@ -46,10 +46,10 @@ app.get('/api/projects', function (req, res) {
         res.json(projects); // return all projects in JSON format
     });
 });
-// create todo and send back all projects after creation
+// create project and send back all projects after creation
 app.post('/api/projects', function (req, res) {
 
-    // create a todo, information comes from AJAX request from Angular
+    // create a project, information comes from AJAX request from Angular
     Project.create({
         text: req.body.text,
         task: req.body.task,
